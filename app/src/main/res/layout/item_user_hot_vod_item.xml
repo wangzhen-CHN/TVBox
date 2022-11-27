@@ -2,7 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:id="@+id/tvHotItem"
+    android:layout_height="@dimen/vs_320"
     android:background="@drawable/shape_user_focus"
     android:focusable="true"
     android:layout_gravity="center"
@@ -16,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/vs_1"
+            android:scaleType="fitXY"
             android:adjustViewBounds="true" />
 
         <LinearLayout

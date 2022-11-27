@@ -94,6 +94,7 @@ public class DetailActivity extends BaseActivity {
     private TextView tvName;
     private TextView tvYear;
     private TextView tvSite;
+    private TextView detail_note;
     private TextView tvArea;
     private TextView tvLang;
     private TextView tvType;
@@ -149,6 +150,7 @@ public class DetailActivity extends BaseActivity {
         tvYear = findViewById(R.id.tvYear);
         tvSite = findViewById(R.id.tvSite);
         tvArea = findViewById(R.id.tvArea);
+        detail_note = findViewById(R.id.detail_note);
         tvLang = findViewById(R.id.tvLang);
         tvType = findViewById(R.id.tvType);
         tvActor = findViewById(R.id.tvActor);
@@ -175,6 +177,7 @@ public class DetailActivity extends BaseActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.previewPlayer, playFragment).commit();
             getSupportFragmentManager().beginTransaction().show(playFragment).commitAllowingStateLoss();
             tvPlay.setText(getString(R.string.det_expand));
+            tvPlay.requestFocus();
 //            tvPlay.setVisibility(View.GONE);
         }
 //        else {
@@ -470,6 +473,7 @@ public class DetailActivity extends BaseActivity {
                     setTextShow(tvArea,mVideo.area);
                     setTextShow(tvLang,mVideo.lang);
                     setTextShow(tvType,mVideo.type);
+                    setTextShow(detail_note,mVideo.note);
                     setTextShow(tvDes,removeHtmlTag(mVideo.des));
                     setTextShow(tvActor, getString(R.string.det_actor), mVideo.actor);
                     setTextShow(tvDirector, getString(R.string.det_dir), mVideo.director);
@@ -532,7 +536,7 @@ public class DetailActivity extends BaseActivity {
                             jumpToPlay();
                             llPlayerFragmentContainer.setVisibility(View.VISIBLE);
                             llPlayerFragmentContainerBlock.setVisibility(View.VISIBLE);
-                            llPlayerFragmentContainerBlock.requestFocus();
+//                            llPlayerFragmentContainerBlock.requestFocus();
                         }
                         // startQuickSearch();
                     } else {

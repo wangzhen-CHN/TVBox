@@ -13,6 +13,7 @@ import com.github.tvbox.osc.event.ServerEvent;
 import com.github.tvbox.osc.ui.activity.SearchActivity;
 import com.github.tvbox.osc.ui.adapter.HomeHotVodAdapter;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
+import com.github.tvbox.osc.util.LOG;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -104,7 +105,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
 
             @Override
             public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
-                itemView.animate().scaleX(1.05f).scaleY(1.05f).setDuration(500).setInterpolator(new BounceInterpolator()).start();
+                itemView.animate().scaleX(1.03f).scaleY(1.03f).setDuration(500).setInterpolator(new BounceInterpolator()).start();
             }
 
             @Override
@@ -113,7 +114,6 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
             }
         });
         tvHotList.setAdapter(homeHotVodAdapter);
-
         initHomeHotVod(homeHotVodAdapter);
     }
 

@@ -23,9 +23,9 @@
 
             <ImageView
                 android:id="@+id/ivThumb"
-                android:layout_width="@dimen/vs_225"
+                android:layout_width="@dimen/vs_530"
                 android:layout_height="@dimen/vs_300"
-                android:clickable="true"
+                android:clickable="false"
                 android:focusable="false"
                 android:scaleType="fitXY" />
 
@@ -33,6 +33,8 @@
                 android:id="@+id/previewPlayerPlace"
                 android:layout_width="@dimen/vs_530"
                 android:layout_height="@dimen/vs_300"
+                android:clickable="false"
+                android:focusable="false"
                 android:visibility="gone" />
 
             <LinearLayout
@@ -87,7 +89,7 @@
                         android:paddingBottom="@dimen/vs_5"
                         android:text="年代"
                         android:textColor="@color/color_FFFFFF_80"
-                        android:textSize="@dimen/ts_18" />
+                        android:textSize="@dimen/ts_16" />
                     <TextView
                         android:id="@+id/tvArea"
                         android:layout_width="wrap_content"
@@ -100,7 +102,7 @@
                         android:text="区域"
                         android:background="@drawable/button_detail_bg"
                         android:textColor="@color/color_FFFFFF_80"
-                        android:textSize="@dimen/ts_18" />
+                        android:textSize="@dimen/ts_16" />
                     <TextView
                         android:id="@+id/tvLang"
                         android:layout_width="wrap_content"
@@ -113,7 +115,7 @@
                         android:text="语言"
                         android:background="@drawable/button_detail_bg"
                         android:textColor="@color/color_FFFFFF_80"
-                        android:textSize="@dimen/ts_18" />
+                        android:textSize="@dimen/ts_16" />
                     <TextView
                         android:id="@+id/tvType"
                         android:layout_width="wrap_content"
@@ -129,7 +131,7 @@
                         android:text="类型"
                         android:background="@drawable/button_detail_bg"
                         android:textColor="@color/color_FFFFFF_80"
-                        android:textSize="@dimen/ts_18" />
+                        android:textSize="@dimen/ts_16" />
                 </LinearLayout>
                 <TextView
                     android:id="@+id/tvDirector"
@@ -186,11 +188,13 @@
                         android:layout_marginEnd="@dimen/vs_10"
                         android:layout_marginRight="@dimen/vs_10"
                         android:background="@drawable/button_detail_all"
+                        android:focusedByDefault="true"
                         android:focusable="true"
                         android:gravity="center"
                         android:text="@string/det_play"
                         android:textColor="@android:color/white"
-                        android:textSize="@dimen/vs_20" />
+                        android:textSize="@dimen/vs_20" >
+                    </TextView>
 
                     <TextView
                         android:id="@+id/tvQuickSearch"
@@ -271,27 +275,51 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/vs_60"
-            android:layout_marginRight="@dimen/vs_10"
             android:gravity="center"
-            android:singleLine="true"
-            android:layout_marginLeft="@dimen/vs_50"
-            android:padding="@dimen/vs_10"
-            android:orientation="vertical">
-            <TextView
+            android:layout_height="@dimen/vs_60" >
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/vs_30"
+                android:layout_height="@dimen/vs_60"
                 android:gravity="center"
-                android:text="选集"
-                android:textColor="@color/color_GLOG"
-                android:textSize="@dimen/ts_20" />
+                android:singleLine="true"
+                android:layout_marginLeft="@dimen/vs_50"
+                android:padding="@dimen/vs_10"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/vs_30"
+                    android:gravity="center"
+                    android:text="选集"
+                    android:textColor="@color/color_GLOG"
+                    android:textSize="@dimen/ts_22" />
 
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/vs_4"-->
+<!--                    android:layout_marginLeft="@dimen/vs_5"-->
+<!--                    android:layout_marginRight="@dimen/vs_5"-->
+<!--                    android:background="@drawable/border_radius" />-->
+            </LinearLayout>
             <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/vs_4"
-                android:layout_marginLeft="@dimen/vs_5"
-                android:layout_marginRight="@dimen/vs_5"
-                android:background="@color/color_GLOG" />
+                android:layout_width="@dimen/vs_2"
+                android:layout_height="@dimen/vs_20"
+                android:background="@drawable/border_radius"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/vs_60"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_marginLeft="@dimen/vs_10"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/detail_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/vs_30"
+                    android:gravity="center"
+                    android:text="更新内容"
+                    android:textColor="@color/color_GLOG"
+                    android:textSize="@dimen/ts_16" />
+            </LinearLayout>
         </LinearLayout>
 
 <!--        <com.owen.tvrecyclerview.widget.TvRecyclerView-->
@@ -328,6 +356,7 @@
         android:layout_marginStart="@dimen/vs_50"
         android:layout_marginLeft="@dimen/vs_50"
         android:layout_marginTop="@dimen/vs_20"
+        android:focusable="false"
         android:visibility="gone"
         android:name="com.github.tvbox.osc.ui.fragment.ModelSettingFragment"
         tools:layout="@layout/fragment_model" />
@@ -340,6 +369,6 @@
         android:layout_marginLeft="@dimen/vs_50"
         android:layout_marginTop="@dimen/vs_20"
         android:background="@drawable/button_detail_preview"
-        android:focusable="true"
+        android:focusable="false"
         android:visibility="gone" />
 </FrameLayout>
