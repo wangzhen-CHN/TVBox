@@ -13,6 +13,7 @@ import android.content.IntentFilter;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Html;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -111,12 +112,13 @@ public class DetailActivity extends BaseActivity {
     private SourceViewModel sourceViewModel;
     private Movie.Video mVideo;
     private VodInfo vodInfo;
-    private SeriesFlagAdapter seriesFlagAdapter;
+//    private SeriesFlagAdapter seriesFlagAdapter;
     private SeriesAdapter seriesAdapter;
     public String vodId;
     public String sourceKey;
     boolean seriesSelect = false;
-    private View seriesFlagFocus = null;
+    private final Handler mHandler = new Handler();
+//    private View seriesFlagFocus = null;
 
     private BroadcastReceiver pipActionReceiver;
     private static final int PIP_BOARDCAST_ACTION_PREV = 0;
@@ -170,7 +172,7 @@ public class DetailActivity extends BaseActivity {
 //        mGridViewFlag = findViewById(R.id.mGridViewFlag);
 //        mGridViewFlag.setHasFixedSize(true);
 //        mGridViewFlag.setLayoutManager(new V7LinearLayoutManager(this.mContext, 0, false));
-        seriesFlagAdapter = new SeriesFlagAdapter();
+//        seriesFlagAdapter = new SeriesFlagAdapter();
 //        mGridViewFlag.setAdapter(seriesFlagAdapter);
         if (showPreview) {
             playFragment = new PlayFragment();
@@ -288,11 +290,14 @@ public class DetailActivity extends BaseActivity {
             @Override
             public void onItemPreSelected(TvRecyclerView parent, View itemView, int position) {
                 seriesSelect = false;
+                TextView seriesView = itemView.findViewById(R.id.tvSeries);
+                seriesView.setTextColor(DetailActivity.this.getResources().getColor(position == vodInfo.playIndex ? R.color.color_FF0057 : R.color.color_FFFFFF));
             }
-
             @Override
             public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
                 seriesSelect = true;
+                TextView seriesView = itemView.findViewById(R.id.tvSeries);
+                seriesView.setTextColor(DetailActivity.this.getResources().getColor(R.color.color_FFFFFF));
             }
 
             @Override
@@ -528,7 +533,7 @@ public class DetailActivity extends BaseActivity {
                                 flag.selected = false;
                         }
 
-                        seriesFlagAdapter.setNewData(vodInfo.seriesFlags);
+//                        seriesFlagAdapter.setNewData(vodInfo.seriesFlags);
 //                        mGridViewFlag.scrollToPosition(flagScrollTo);
 
                         refreshList();
@@ -833,12 +838,12 @@ public class DetailActivity extends BaseActivity {
             mGridView.requestFocus();
             return;
         }
-        if (seriesSelect) {
-            if (seriesFlagFocus != null && !seriesFlagFocus.isFocused()) {
-                seriesFlagFocus.requestFocus();
-                return;
-            }
-        }
+//        if (seriesSelect) {
+//            if (seriesFlagFocus != null && !seriesFlagFocus.isFocused()) {
+//                seriesFlagFocus.requestFocus();
+//                return;
+//            }
+//        }
         super.onBackPressed();
     }
 

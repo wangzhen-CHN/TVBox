@@ -23,7 +23,7 @@
 
             <ImageView
                 android:id="@+id/ivThumb"
-                android:layout_width="@dimen/vs_530"
+                android:layout_width="@dimen/vs_225"
                 android:layout_height="@dimen/vs_300"
                 android:clickable="false"
                 android:focusable="false"
@@ -33,7 +33,6 @@
                 android:id="@+id/previewPlayerPlace"
                 android:layout_width="@dimen/vs_530"
                 android:layout_height="@dimen/vs_300"
-                android:clickable="false"
                 android:focusable="false"
                 android:visibility="gone" />
 
@@ -188,7 +187,6 @@
                         android:layout_marginEnd="@dimen/vs_10"
                         android:layout_marginRight="@dimen/vs_10"
                         android:background="@drawable/button_detail_all"
-                        android:focusedByDefault="true"
                         android:focusable="true"
                         android:gravity="center"
                         android:text="@string/det_play"
@@ -290,6 +288,7 @@
                     android:layout_height="@dimen/vs_30"
                     android:gravity="center"
                     android:text="选集"
+                    android:focusable="false"
                     android:textColor="@color/color_GLOG"
                     android:textSize="@dimen/ts_22" />
 
@@ -302,6 +301,7 @@
             </LinearLayout>
             <View
                 android:layout_width="@dimen/vs_2"
+                android:focusable="false"
                 android:layout_height="@dimen/vs_20"
                 android:background="@drawable/border_radius"/>
             <LinearLayout
@@ -346,6 +346,7 @@
             android:clipToPadding="false"
             app:tv_horizontalSpacingWithMargins="@dimen/vs_10"
             app:tv_selectedItemIsCentered="true"
+            tools:listitem="@layout/item_series"
             app:tv_verticalSpacingWithMargins="@dimen/vs_10" />
     </LinearLayout>
 
@@ -357,9 +358,7 @@
         android:layout_marginLeft="@dimen/vs_50"
         android:layout_marginTop="@dimen/vs_20"
         android:focusable="false"
-        android:visibility="gone"
-        android:name="com.github.tvbox.osc.ui.fragment.ModelSettingFragment"
-        tools:layout="@layout/fragment_model" />
+        android:visibility="gone"/>
 
     <View
         android:id="@+id/previewPlayerBlock"

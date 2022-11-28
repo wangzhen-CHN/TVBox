@@ -24,6 +24,7 @@ public class SeriesAdapter extends BaseQuickAdapter<VodInfo.VodSeries, BaseViewH
     protected void convert(BaseViewHolder helper, VodInfo.VodSeries item) {
         TextView tvSeries = helper.getView(R.id.tvSeries);
         if (item.selected) {
+            //当前选择的剧集数 文本颜色
             tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_FF0057));
         } else {
             tvSeries.setTextColor(Color.WHITE);
