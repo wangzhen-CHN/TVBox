@@ -224,6 +224,8 @@ public class VodController extends BaseController {
     // pause container
     FrameLayout mProgressTop;
     ImageView mPauseIcon;
+    ImageView mPlayOrPauseIcon;
+    LinearLayout mPlayOrPause;
     LinearLayout mTapSeek;
 
     // progress container
@@ -293,6 +295,8 @@ public class VodController extends BaseController {
         // pause container
         mProgressTop = findViewById(R.id.tv_pause_container);
         mPauseIcon = findViewById(R.id.tv_pause_icon);
+        mPlayOrPauseIcon = findViewById(R.id.tv_play_or_pause_icon);
+        mPlayOrPause = findViewById(R.id.play_or_pause);
         mTapSeek = findViewById(R.id.ll_ddtap);
 
         // progress container
@@ -386,6 +390,19 @@ public class VodController extends BaseController {
                 mIsDragging = false;
                 mControlWrapper.startProgress();
                 mControlWrapper.startFadeOut();
+            }
+        });
+        // Button : 播放/暂停 --------------------------------------------
+        mPlayOrPause.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                togglePlay();
+                if (isPaused) {
+                    mPlayOrPauseIcon.setImageResource(R.drawable.play_pause_new);;
+                } else {
+                    mPlayOrPauseIcon.setImageResource(R.drawable.play_play);
+                }
+                hideBottom();
             }
         });
         // Button : Play NEXT --------------------------------------------
@@ -1021,6 +1038,7 @@ public class VodController extends BaseController {
         mHandler.sendEmptyMessage(1002);
         mHandler.post(mTimeRunnable);
         mHandler.postDelayed(mHideBottomRunnable, 10000);
+        mPlayOrPause.requestFocus();
     }
 
     Runnable mHideBottomRunnable = new Runnable() {
@@ -1144,6 +1162,7 @@ public class VodController extends BaseController {
                 // Set back to Pause Icon
                 mProgressTop.setVisibility(INVISIBLE);
                 mPauseIcon.setImageResource(R.drawable.play_pause);
+                mPlayOrPauseIcon.setImageResource(R.drawable.play_play);
                 // Set back to current speed
                 mSpeed = currentSpeed;
                 setPlaySpeed(mSpeed);
@@ -1171,7 +1190,9 @@ public class VodController extends BaseController {
         }
         if (tapDirection == 0 || isPaused) {
             togglePlay();
+            mPlayOrPauseIcon.setImageResource(R.drawable.play_pause_new);
         } else {
+            mPlayOrPauseIcon.setImageResource(R.drawable.play_play);
             circularReveal(mTapSeek, tapDirection);
             int duration = (int) mControlWrapper.getDuration();
             int currentPosition = (int) mControlWrapper.getCurrentPosition();
