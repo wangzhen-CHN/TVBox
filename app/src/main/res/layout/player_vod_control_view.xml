@@ -356,28 +356,26 @@
 
         <LinearLayout
             android:id="@+id/ll_pause"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/vs_100"
-
-            android:layout_gravity="end"
-            android:layout_marginTop="@dimen/vs_60"
-            android:layout_marginEnd="@dimen/vs_50"
-            android:layout_marginRight="@dimen/vs_50"
+            android:layout_width="@dimen/vs_200"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/vs_20"
+            android:layout_gravity="center"
             android:background="@drawable/shape_user_pause"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:gravity="center|right"
-            android:orientation="horizontal">
-
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/tv_pause_icon"
+                android:layout_width="@dimen/vs_80"
+                android:layout_height="@dimen/vs_80"
+                android:layout_marginBottom="@dimen/vs_10"
+                android:layout_gravity="center"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:src="@drawable/play_pause" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/vs_20"
-                android:layout_marginLeft="@dimen/vs_20"
-                android:layout_marginEnd="@dimen/vs_10"
-                android:layout_marginRight="@dimen/vs_10"
-                android:gravity="center"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
@@ -395,7 +393,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/ts_26"
                     android:textStyle="bold"
-                    tools:text="100" />
+                    tools:text="进度" />
 
                 <ProgressBar
                     android:id="@+id/video_pausebar"
@@ -409,16 +407,7 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/tv_pause_icon"
-                android:layout_width="@dimen/vs_60"
-                android:layout_height="@dimen/vs_60"
-                android:layout_gravity="center"
-                android:layout_marginEnd="@dimen/vs_20"
-                android:layout_marginRight="@dimen/vs_20"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:src="@drawable/play_pause" />
+
 
         </LinearLayout>
 
@@ -447,28 +436,30 @@
 
     <LinearLayout
         android:id="@+id/tv_progress_container"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/vs_100"
-        android:layout_gravity="end"
-        android:layout_marginTop="@dimen/vs_60"
-        android:layout_marginEnd="@dimen/vs_50"
-        android:layout_marginRight="@dimen/vs_50"
+        android:layout_width="@dimen/vs_200"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:background="@drawable/shape_user_pause"
         android:focusable="false"
+        android:paddingVertical="@dimen/vs_20"
         android:focusableInTouchMode="false"
-        android:gravity="center|right"
-        android:orientation="horizontal"
+        android:gravity="center"
+        android:orientation="vertical"
         android:visibility="gone"
         tools:visibility="visible">
-
+        <ImageView
+            android:id="@+id/tv_progress_icon"
+            android:layout_width="@dimen/vs_80"
+            android:layout_height="@dimen/vs_80"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/vs_10"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            tools:src="@drawable/play_rewind" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/vs_20"
-            android:layout_marginLeft="@dimen/vs_20"
-            android:layout_marginEnd="@dimen/vs_10"
-            android:layout_marginRight="@dimen/vs_10"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -486,7 +477,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/ts_26"
                 android:textStyle="bold"
-                tools:text="100" />
+                tools:text="进度" />
 
             <ProgressBar
                 android:id="@+id/video_progressbar"
@@ -499,16 +490,6 @@
                 android:tag="progressbar_video" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/tv_progress_icon"
-            android:layout_width="@dimen/vs_60"
-            android:layout_height="@dimen/vs_60"
-            android:layout_gravity="center"
-            android:layout_marginEnd="@dimen/vs_20"
-            android:layout_marginRight="@dimen/vs_20"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            tools:src="@drawable/play_rewind" />
 
     </LinearLayout>
 

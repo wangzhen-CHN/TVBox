@@ -191,8 +191,7 @@
                         android:gravity="center"
                         android:text="@string/det_play"
                         android:textColor="@android:color/white"
-                        android:textSize="@dimen/vs_20" >
-                    </TextView>
+                        android:textSize="@dimen/vs_20" />
 
                     <TextView
                         android:id="@+id/tvQuickSearch"

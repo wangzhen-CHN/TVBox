@@ -179,7 +179,8 @@ public class DetailActivity extends BaseActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.previewPlayer, playFragment).commit();
             getSupportFragmentManager().beginTransaction().show(playFragment).commitAllowingStateLoss();
             tvPlay.setText(getString(R.string.det_expand));
-            tvPlay.requestFocus();
+            tvPlay.setVisibility(View.VISIBLE);
+            setFocusDelayed(tvPlay,200);
 //            tvPlay.setVisibility(View.GONE);
         }
 //        else {
@@ -749,13 +750,13 @@ public class DetailActivity extends BaseActivity {
         RoomDataManger.insertVodRecord(sourceKey, vodInfo);
         EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_HISTORY_REFRESH));
     }
-    private void setFocusDelayed(final LinearLayout view) {
+    private void setFocusDelayed(final TextView view,long timer) {
         view.postDelayed(new Runnable() {//给他个延迟时间
             @Override
             public void run() {
                 view.requestFocus();
             }
-        }, 2000);
+        }, timer);
     }
 
     @Override
@@ -842,7 +843,7 @@ public class DetailActivity extends BaseActivity {
             if (playFragment.onBackPressed())
                 return;
             toggleFullPreview();
-            tvPlay.requestFocus();
+            setFocusDelayed(tvPlay,200);
             return;
         }
 //        if (seriesSelect) {

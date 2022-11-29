@@ -397,11 +397,6 @@ public class VodController extends BaseController {
             @Override
             public void onClick(View view) {
                 togglePlay();
-                if (isPaused) {
-                    mPlayOrPauseIcon.setImageResource(R.drawable.play_pause_new);;
-                } else {
-                    mPlayOrPauseIcon.setImageResource(R.drawable.play_play);
-                }
                 hideBottom();
             }
         });
@@ -1005,9 +1000,11 @@ public class VodController extends BaseController {
             case VideoView.STATE_PLAYING:
                 isPaused = false;
                 startProgress();
+                mPlayOrPauseIcon.setImageResource(R.drawable.play_pause_new);
                 break;
             case VideoView.STATE_PAUSED:
                 isPaused = true;
+                mPlayOrPauseIcon.setImageResource(R.drawable.play_play);
                 break;
             case VideoView.STATE_ERROR:
                 listener.errReplay();
@@ -1168,7 +1165,6 @@ public class VodController extends BaseController {
                 // Set back to Pause Icon
                 mProgressTop.setVisibility(INVISIBLE);
                 mPauseIcon.setImageResource(R.drawable.play_pause);
-                mPlayOrPauseIcon.setImageResource(R.drawable.play_play);
                 // Set back to current speed
                 mSpeed = currentSpeed;
                 setPlaySpeed(mSpeed);
@@ -1196,9 +1192,7 @@ public class VodController extends BaseController {
         }
         if (tapDirection == 0 || isPaused) {
             togglePlay();
-            mPlayOrPauseIcon.setImageResource(R.drawable.play_pause_new);
         } else {
-            mPlayOrPauseIcon.setImageResource(R.drawable.play_play);
             circularReveal(mTapSeek, tapDirection);
             int duration = (int) mControlWrapper.getDuration();
             int currentPosition = (int) mControlWrapper.getCurrentPosition();
