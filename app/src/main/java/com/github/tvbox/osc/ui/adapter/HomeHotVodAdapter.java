@@ -29,12 +29,13 @@ public class HomeHotVodAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHol
 
     @Override
     protected void convert(BaseViewHolder helper, Movie.Video item) {
-        TextView tvRate = helper.getView(R.id.tvNote);
+        TextView tvNote = helper.getView(R.id.tvNote);
         TextView tvName = helper.getView(R.id.tvName);
+        TextView tvHotType = helper.getView(R.id.tvHotType);
         if (item.note == null || item.note.isEmpty()) {
-            tvRate.setVisibility(View.GONE);
+            tvNote.setVisibility(View.GONE);
         } else {
-            tvRate.setVisibility(View.VISIBLE);
+            tvNote.setVisibility(View.VISIBLE);
         }
         ImageView ivThumb = helper.getView(R.id.ivThumb);
         FrameLayout tvHotItem = helper.getView(R.id.tvHotItem);
@@ -42,14 +43,17 @@ public class HomeHotVodAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHol
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, 260);
             tvHotItem.setLayoutParams(layoutParams);
             tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX,24);
-            tvRate.setTextSize(TypedValue.COMPLEX_UNIT_PX,20);
+            tvNote.setTextSize(TypedValue.COMPLEX_UNIT_PX,20);
+            tvHotType.setTextSize(TypedValue.COMPLEX_UNIT_PX,20);
         }else {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, 500);
             tvHotItem.setLayoutParams(layoutParams);
             tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX,34);
-            tvRate.setTextSize(TypedValue.COMPLEX_UNIT_PX,26);
+            tvNote.setTextSize(TypedValue.COMPLEX_UNIT_PX,26);
+            tvHotType.setTextSize(TypedValue.COMPLEX_UNIT_PX,26);
         }
-        tvRate.setText(item.note);
+        tvNote.setText(item.note);
+        tvHotType.setText(item.type);
         tvName.setText(item.name);
         //由于部分电视机使用glide报错
         if (!TextUtils.isEmpty(item.pic)) {
