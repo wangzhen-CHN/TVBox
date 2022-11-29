@@ -87,7 +87,6 @@ import me.jessyan.autosize.utils.AutoSizeUtils;
  */
 public class DetailActivity extends BaseActivity {
     private LinearLayout llLayout;
-    private LinearLayout detailTvOption;
     private FragmentContainerView llPlayerFragmentContainer;
     private View llPlayerFragmentContainerBlock;
     private View llPlayerPlace;
@@ -143,7 +142,6 @@ public class DetailActivity extends BaseActivity {
 
     private void initView() {
         llLayout = findViewById(R.id.llLayout);
-        detailTvOption = findViewById(R.id.detailTvOption);
         llPlayerPlace = findViewById(R.id.previewPlayerPlace);
         llPlayerFragmentContainer = findViewById(R.id.previewPlayer);
         llPlayerFragmentContainerBlock = findViewById(R.id.previewPlayerBlock);
