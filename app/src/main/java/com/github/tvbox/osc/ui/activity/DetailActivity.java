@@ -87,6 +87,7 @@ import me.jessyan.autosize.utils.AutoSizeUtils;
  */
 public class DetailActivity extends BaseActivity {
     private LinearLayout llLayout;
+    private LinearLayout detailTvOption;
     private FragmentContainerView llPlayerFragmentContainer;
     private View llPlayerFragmentContainerBlock;
     private View llPlayerPlace;
@@ -142,6 +143,7 @@ public class DetailActivity extends BaseActivity {
 
     private void initView() {
         llLayout = findViewById(R.id.llLayout);
+        detailTvOption = findViewById(R.id.detailTvOption);
         llPlayerPlace = findViewById(R.id.previewPlayerPlace);
         llPlayerFragmentContainer = findViewById(R.id.previewPlayer);
         llPlayerFragmentContainerBlock = findViewById(R.id.previewPlayerBlock);
@@ -583,7 +585,6 @@ public class DetailActivity extends BaseActivity {
             sourceKey = key;
             showLoading();
             sourceViewModel.getDetail(sourceKey, vodId);
-
             boolean isVodCollect = RoomDataManger.isVodCollect(sourceKey, vodId);
             if (isVodCollect) {
                 tvCollect.setText(getString(R.string.det_fav_star));
@@ -750,6 +751,14 @@ public class DetailActivity extends BaseActivity {
         RoomDataManger.insertVodRecord(sourceKey, vodInfo);
         EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_HISTORY_REFRESH));
     }
+    private void setFocusDelayed(final LinearLayout view) {
+        view.postDelayed(new Runnable() {//给他个延迟时间
+            @Override
+            public void run() {
+                view.requestFocus();
+            }
+        }, 2000);
+    }
 
     @Override
     protected void onDestroy() {
@@ -835,7 +844,7 @@ public class DetailActivity extends BaseActivity {
             if (playFragment.onBackPressed())
                 return;
             toggleFullPreview();
-            mGridView.requestFocus();
+            tvPlay.requestFocus();
             return;
         }
 //        if (seriesSelect) {

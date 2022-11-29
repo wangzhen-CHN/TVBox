@@ -1037,14 +1037,20 @@ public class VodController extends BaseController {
         mHandler.removeMessages(1003);
         mHandler.sendEmptyMessage(1002);
         mHandler.post(mTimeRunnable);
-        mHandler.postDelayed(mHideBottomRunnable, 10000);
-        mPlayOrPause.requestFocus();
+        mHandler.postDelayed(mHideBottomRunnable, 6000);
+        mHandler.postDelayed(mPlayOrPauseFocusRunnable, 100);
     }
 
     Runnable mHideBottomRunnable = new Runnable() {
         @Override
         public void run() {
             hideBottom();
+        }
+    };
+    Runnable mPlayOrPauseFocusRunnable = new Runnable() {
+        @Override
+        public void run() {
+            mPlayOrPause.requestFocus();;
         }
     };
 
