@@ -125,16 +125,14 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
             int day = cal.get(Calendar.DATE);
             String today = String.format("%d%d%d", year, month, day);
             String requestDay = Hawk.get("home_hot_day", "");
+            String json = Hawk.get("home_hot", "");
             //每天只请求一次
-            if (requestDay.equals(today)) {
-                String json = Hawk.get("home_hot", "");
-                if (!json.isEmpty()) {
+            if (requestDay.equals(today) && !json.isEmpty()) {
                     adapter.setNewData(loadHots(json));
                     return;
-                }
             }
-//            OkGo.<String>get("https://movie.douban.com/j/new_search_subjects?sort=U&range=0,10&tags=&playable=1&start=0&year_range=" + year + "," + year).execute(new AbsCallback<String>() {
-            OkGo.<String>get("https://api.coder.wang/douban/mock").execute(new AbsCallback<String>() {
+            // /all 电影电视剧聚合  /tv 电视剧  /movie 电影  
+            OkGo.<String>get("https://api.coder.wang/douban/all").execute(new AbsCallback<String>() {
                 @Override
                 public void onSuccess(Response<String> response) {
                     String netJson = response.body();
@@ -168,7 +166,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                 Movie.Video vod = new Movie.Video();
                 vod.name = obj.get("title").getAsString();
                 vod.note = obj.get("updateInfo").getAsString();
-                vod.pic = obj.get("photos").getAsString();
+                vod.pic = obj.get("pic").getAsString();
                 result.add(vod);
             }
         } catch (Throwable th) {
