@@ -843,7 +843,7 @@ public class DetailActivity extends BaseActivity {
             if (playFragment.onBackPressed())
                 return;
             toggleFullPreview();
-            setFocusDelayed(tvPlay,200);
+//            setFocusDelayed(tvPlay,200);
             return;
         }
 //        if (seriesSelect) {
