@@ -30,6 +30,15 @@
         <!--        <item name="android:windowBackground">@drawable/app_bg</item>-->
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
+    <style name="AppTheme.AppLaunch" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@drawable/app_launch</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBar">false</item>
+        <!--隐藏状态栏的-->
+        <item name="windowNoTitle">true</item>
+    </style>
     <!-- 自定义dialog样式 -->
     <style name="CustomDialogStyle" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
