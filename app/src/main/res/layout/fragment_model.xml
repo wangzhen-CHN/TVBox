@@ -299,7 +299,101 @@
                             android:textColor="@android:color/white"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="@dimen/vs_0"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/vs_5"
+                        android:layout_marginLeft="@dimen/vs_5"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
 
+                        <LinearLayout
+                            android:id="@+id/llScale"
+                            android:layout_width="@dimen/vs_0"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="@dimen/vs_5"
+                            android:layout_marginRight="@dimen/vs_5"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_setting_model_focus"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/vs_20"
+                            android:paddingRight="@dimen/vs_20">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mn_ratio"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/ts_24" />
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/tvScaleType"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/ts_24" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/vs_10"
+                                android:layout_marginLeft="@dimen/vs_10"
+                                android:text="›"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/ts_30" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llPIP"
+                            android:layout_width="@dimen/vs_0"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/vs_5"
+                            android:layout_marginLeft="@dimen/vs_5"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_setting_model_focus"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/vs_20"
+                            android:paddingRight="@dimen/vs_20">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mn_pip"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/ts_24" />
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/tvPIP"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/ts_24" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/vs_10"
+                                android:layout_marginLeft="@dimen/vs_10"
+                                android:text="›"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/ts_30" />
+                        </LinearLayout>
+
+                    </LinearLayout>
                     <LinearLayout
                         android:id="@+id/showPreview"
                         android:layout_width="@dimen/vs_0"
@@ -309,6 +403,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/shape_setting_model_focus"
                         android:focusable="true"
+                        android:visibility="gone"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:paddingLeft="@dimen/vs_20"
@@ -405,7 +500,7 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:id="@+id/llScale"
+                            android:id="@+id/llPlay"
                             android:layout_width="@dimen/vs_0"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="@dimen/vs_5"
@@ -421,7 +516,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/mn_ratio"
+                                android:text="@string/mn_play_type"
                                 android:textColor="@android:color/white"
                                 android:textSize="@dimen/ts_24" />
 
@@ -431,7 +526,7 @@
                                 android:layout_weight="1" />
 
                             <TextView
-                                android:id="@+id/tvScaleType"
+                                android:id="@+id/tvPlay"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@android:color/white"
@@ -448,7 +543,7 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/llPIP"
+                            android:id="@+id/llMediaCodec"
                             android:layout_width="@dimen/vs_0"
                             android:layout_height="match_parent"
                             android:layout_marginStart="@dimen/vs_5"
@@ -464,7 +559,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/mn_pip"
+                                android:text="@string/mn_play_decode"
                                 android:textColor="@android:color/white"
                                 android:textSize="@dimen/ts_24" />
 
@@ -474,7 +569,7 @@
                                 android:layout_weight="1" />
 
                             <TextView
-                                android:id="@+id/tvPIP"
+                                android:id="@+id/tvMediaCodec"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@android:color/white"
@@ -607,7 +702,7 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:id="@+id/llPlay"
+                            android:id="@+id/llIjkCachePlay"
                             android:layout_width="@dimen/vs_0"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="@dimen/vs_5"
@@ -623,7 +718,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/mn_play_type"
+                                android:text="缓冲播放"
                                 android:textColor="@android:color/white"
                                 android:textSize="@dimen/ts_24" />
 
@@ -633,10 +728,11 @@
                                 android:layout_weight="1" />
 
                             <TextView
-                                android:id="@+id/tvPlay"
+                                android:id="@+id/tvIjkCachePlay"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@android:color/white"
+                                android:text="关闭"
                                 android:textSize="@dimen/ts_24" />
 
                             <TextView
@@ -650,7 +746,7 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/llMediaCodec"
+                            android:id="@+id/llClearCache"
                             android:layout_width="@dimen/vs_0"
                             android:layout_height="match_parent"
                             android:layout_marginStart="@dimen/vs_5"
@@ -666,7 +762,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/mn_play_decode"
+                                android:text="清除缓存"
                                 android:textColor="@android:color/white"
                                 android:textSize="@dimen/ts_24" />
 

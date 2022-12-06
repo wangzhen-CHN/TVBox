@@ -26,6 +26,7 @@ import com.github.tvbox.osc.ui.dialog.BackupDialog;
 import com.github.tvbox.osc.ui.dialog.SelectDialog;
 import com.github.tvbox.osc.ui.dialog.XWalkInitDialog;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
+import com.github.tvbox.osc.util.FileUtils;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.HistoryHelper;
 import com.github.tvbox.osc.util.OkGoHelper;
@@ -68,6 +69,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
     private TextView tvHomeShow;
     private TextView tvLocale;
     private TextView tvPIP;
+    private TextView tvIjkCachePlay;
 
     public static ModelSettingFragment newInstance() {
         return new ModelSettingFragment().setArguments();
@@ -104,6 +106,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvHomeRec = findViewById(R.id.tvHomeRec);
         tvHomeNum = findViewById(R.id.tvHomeNum);
         tvSearchView = findViewById(R.id.tvSearchView);
+        tvIjkCachePlay = findViewById(R.id.tvIjkCachePlay);
         tvMediaCodec.setText(Hawk.get(HawkConfig.IJK_CODEC, ""));
         tvDebugOpen.setText(Hawk.get(HawkConfig.DEBUG_OPEN, false) ? "打开" : "关闭");
         tvParseWebView.setText(Hawk.get(HawkConfig.PARSE_WEBVIEW, true) ? "系统自带" : "XWalkView");
@@ -116,7 +119,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvScale.setText(PlayerHelper.getScaleName(Hawk.get(HawkConfig.PLAY_SCALE, 0)));
         tvPlay.setText(PlayerHelper.getPlayerName(Hawk.get(HawkConfig.PLAY_TYPE, 0)));
         tvRender.setText(PlayerHelper.getRenderName(Hawk.get(HawkConfig.PLAY_RENDER, 0)));
-
+        tvIjkCachePlay.setText(Hawk.get(HawkConfig.IJK_CACHE_PLAY, false) ? "开启" : "关闭");
         //takagen99 : Set HomeApi as default
         findViewById(R.id.llHomeApi).requestFocus();
 
@@ -694,7 +697,32 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 findViewById(R.id.llDebug).setVisibility(View.VISIBLE);
             }
         };
+        findViewById(R.id.llIjkCachePlay).setOnClickListener((view -> onClickIjkCachePlay(view)));
+        findViewById(R.id.llClearCache).setOnClickListener((view -> onClickClearCache(view)));
+    }
 
+    private void onClickIjkCachePlay(View v) {
+        FastClickCheckUtil.check(v);
+        Boolean isOpen = Hawk.get(HawkConfig.IJK_CACHE_PLAY, false);
+        Hawk.put(HawkConfig.IJK_CACHE_PLAY, !isOpen);
+        Toast.makeText(getContext(), !isOpen ? "缓存播放启用" : "缓存播放关闭", Toast.LENGTH_LONG).show();
+        tvIjkCachePlay.setText(!isOpen ? "开启" : "关闭");
+    }
+
+    private void onClickClearCache(View v) {
+        FastClickCheckUtil.check(v);
+        String cachePath = FileUtils.getCachePath();
+        File cacheDir = new File(cachePath);
+        if (!cacheDir.exists()) return;
+        new Thread(() -> {
+            try {
+                FileUtils.cleanDirectory(cacheDir);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+        Toast.makeText(getContext(), "缓存已清空", Toast.LENGTH_LONG).show();
+        return;
     }
 
     @Override

@@ -36,6 +36,7 @@ public class HawkConfig {
     public static final String PIC_IN_PIC = "pic_in_pic"; // true = on, false = off
     public static final String SUBTITLE_TEXT_SIZE = "subtitle_text_size";
     public static final String SUBTITLE_TIME_DELAY = "subtitle_time_delay";
+    public static final String IJK_CACHE_PLAY = "ijk_cache_play"; //是否开启缓冲播放
 
     public static boolean isDebug(){
         return Hawk.get(DEBUG_OPEN, false);
