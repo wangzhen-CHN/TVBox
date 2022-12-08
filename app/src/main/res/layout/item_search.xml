@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/shape_user_focus"
     android:focusable="true"
     android:padding="@dimen/vs_1">
@@ -10,11 +11,12 @@
         android:layout_width="@dimen/vs_214"
         android:layout_height="@dimen/vs_280">
 
-        <ImageView
+        <com.github.tvbox.osc.ui.tv.widget.WzRoundImageView
             android:id="@+id/ivThumb"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/vs_1"
+            app:radius="@dimen/vs_23"
             android:scaleType="fitXY" />
 
         <LinearLayout
