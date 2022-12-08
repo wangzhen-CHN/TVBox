@@ -100,12 +100,12 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         tvHotList.setOnItemListener(new TvRecyclerView.OnItemListener() {
             @Override
             public void onItemPreSelected(TvRecyclerView parent, View itemView, int position) {
-                itemView.animate().scaleX(1.0f).scaleY(1.0f).setDuration(500).setInterpolator(new BounceInterpolator()).start();
+                itemView.animate().scaleX(1.0f).scaleY(1.0f).setDuration(200).start();
             }
 
             @Override
             public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
-                itemView.animate().scaleX(1.03f).scaleY(1.03f).setDuration(500).setInterpolator(new BounceInterpolator()).start();
+                itemView.animate().scaleX(1.05f).scaleY(1.05f).setDuration(200).start();
             }
 
             @Override

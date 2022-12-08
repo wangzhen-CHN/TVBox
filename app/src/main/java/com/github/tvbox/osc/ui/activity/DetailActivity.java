@@ -106,6 +106,7 @@ public class DetailActivity extends BaseActivity {
     private TextView tvSort;
     private TextView tvQuickSearch;
     private TextView tvCollect;
+    private TextView seriesFocus;
 //    private TvRecyclerView mGridViewFlag;
     private TvRecyclerView mGridView;
     private LinearLayout mEmptyPlayList;
@@ -287,25 +288,28 @@ public class DetailActivity extends BaseActivity {
                 Toast.makeText(DetailActivity.this, getString(R.string.det_url), Toast.LENGTH_SHORT).show();
             }
         });
-        mGridView.setOnItemListener(new TvRecyclerView.OnItemListener() {
-            @Override
-            public void onItemPreSelected(TvRecyclerView parent, View itemView, int position) {
-                seriesSelect = false;
-                TextView seriesView = itemView.findViewById(R.id.tvSeries);
-                seriesView.setTextColor(DetailActivity.this.getResources().getColor(position == vodInfo.playIndex ? R.color.color_FF0057 : R.color.color_FFFFFF));
-            }
-            @Override
-            public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
-                seriesSelect = true;
-                TextView seriesView = itemView.findViewById(R.id.tvSeries);
-                seriesView.setTextColor(DetailActivity.this.getResources().getColor(R.color.color_FFFFFF));
-            }
-
-            @Override
-            public void onItemClick(TvRecyclerView parent, View itemView, int position) {
-
-            }
-        });
+//        mGridView.setOnItemListener(new TvRecyclerView.OnItemListener() {
+//            @Override
+//            public void onItemPreSelected(TvRecyclerView parent, View itemView, int position) {
+//                seriesSelect = false;
+//                TextView seriesView = itemView.findViewById(R.id.tvSeries);
+//                LOG.e("————————————————————————————PreSelected——————————————————————————————");
+//                seriesView.setTextColor(DetailActivity.this.getResources().getColor(position == vodInfo.playIndex ? R.color.color_FF0057 : R.color.color_FFFFFF));
+//            }
+//            @Override
+//            public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
+//                seriesSelect = true;
+//                LOG.e("————————————————————————————选中——————————————————————————————");
+//                TextView seriesView = itemView.findViewById(R.id.tvSeries);
+//                seriesFocus =seriesView;
+//                seriesView.setTextColor(DetailActivity.this.getResources().getColor(R.color.color_FFFFFF));
+//            }
+//
+//            @Override
+//            public void onItemClick(TvRecyclerView parent, View itemView, int position) {
+//
+//            }
+//        });
 //        mGridViewFlag.setOnItemListener(new TvRecyclerView.OnItemListener() {
 //            private void refresh(View itemView, int position) {
 //                String newFlag = seriesFlagAdapter.getData().get(position).name;
@@ -840,12 +844,14 @@ public class DetailActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         if (fullWindows) {
+            LOG.e("————————————————————————————退出全屏——————————————————————————————");
             if (playFragment.onBackPressed())
                 return;
             toggleFullPreview();
 //            setFocusDelayed(tvPlay,200);
             return;
         }
+
 //        if (seriesSelect) {
 //            if (seriesFlagFocus != null && !seriesFlagFocus.isFocused()) {
 //                seriesFlagFocus.requestFocus();

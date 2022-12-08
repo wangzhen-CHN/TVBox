@@ -42,15 +42,15 @@ public class HomeHotVodAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHol
         if (helper.getLayoutPosition()>1){
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, 260);
             tvHotItem.setLayoutParams(layoutParams);
-            tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX,24);
-            tvNote.setTextSize(TypedValue.COMPLEX_UNIT_PX,20);
-            tvHotType.setTextSize(TypedValue.COMPLEX_UNIT_PX,20);
+            tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX,26);
+            tvNote.setTextSize(TypedValue.COMPLEX_UNIT_PX,24);
+            tvHotType.setTextSize(TypedValue.COMPLEX_UNIT_PX,22);
         }else {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, 500);
             tvHotItem.setLayoutParams(layoutParams);
-            tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX,34);
-            tvNote.setTextSize(TypedValue.COMPLEX_UNIT_PX,26);
-            tvHotType.setTextSize(TypedValue.COMPLEX_UNIT_PX,26);
+            tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX,38);
+            tvNote.setTextSize(TypedValue.COMPLEX_UNIT_PX,28);
+            tvHotType.setTextSize(TypedValue.COMPLEX_UNIT_PX,28);
         }
         tvNote.setText(item.note);
         tvHotType.setText(item.type);

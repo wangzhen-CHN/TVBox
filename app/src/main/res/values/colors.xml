@@ -7,6 +7,7 @@
     <color name="color_FF0057">#FF5922</color>
     <color name="color_FF0057_80">#FF5922</color>
     <color name="color_FF0057_70">#FF5922</color>
+    <color name="color_FF0057_60">#70FF5922</color>
     <color name="color_FF0057_40">#FF5922</color>
     <color name="color_11FF5922">#11FF5922</color>
 
@@ -43,6 +44,7 @@
     <color name="color_000000_40">#66000000</color>
     <color name="color_000000_15">#26000000</color>
     <color name="color_000000_10">#10000000</color>
+    <color name="color_000000_00">#00000000</color>
 
     <!-- Unused Subtitle Text -->
     <color name="color_FFB6C1">#FFB6C1</color>
