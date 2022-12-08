@@ -6,17 +6,19 @@
     android:layout_height="@dimen/vs_320"
     android:focusable="true"
     android:layout_gravity="center"
+    android:clipChildren="false"
     android:background="@drawable/shape_user_focus"
     android:padding="@dimen/vs_1">
     <!--540*300-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
+        <com.github.tvbox.osc.ui.tv.widget.WzRoundImageView
             android:id="@+id/ivThumb"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/vs_1"
+            app:radius="@dimen/vs_25"
             android:scaleType="fitXY"
             android:adjustViewBounds="true" />
 

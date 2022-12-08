@@ -13,7 +13,9 @@
         <attr name="android:verticalSpacing" />
         <attr name="android:gravity" />
     </declare-styleable>
-
+    <declare-styleable name="WzRoundImageView">
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
     <declare-styleable name="lbVerticalGridView">
         <attr name="columnWidth" format="dimension">
             <enum name="wrap_content" value="-2" />
