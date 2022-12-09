@@ -47,12 +47,13 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+<!--                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />-->
                 <!-- 1.Settings中会通过这个action搜索到该activity -->
-                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <!-- 2.SettingsActivity通过该过滤器获取这个选项,priority="1"表示选项的位置顺序数字由高到底排序 -->
+            <intent-filter>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
             <intent-filter android:priority="1">
                 <action android:name="com.android.settings.action.SETTINGS" />
             </intent-filter>
